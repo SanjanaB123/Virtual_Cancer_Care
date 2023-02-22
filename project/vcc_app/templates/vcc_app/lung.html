@@ -70,12 +70,11 @@
             <li class="nav-item">
               <a class="nav-link" href="index.html#about">About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#services">Services</a>
-            </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="index.html#plans">Plans</a>
             </li>
+
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -110,20 +109,14 @@
               <a class="nav-link" href="index.html#contact">Contact</a>
             </li>
           </ul>
-          <span class="nav-item social-icons">
-            <span class="fa-stack">
-              <a href="#your-link">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-facebook-f fa-stack-1x"></i>
-              </a>
-            </span>
-            <span class="fa-stack">
-              <a href="#your-link">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-twitter fa-stack-1x"></i>
-              </a>
-            </span>
-          </span>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="{% url 'log' %}"
+              >Login/Signup</a
+            >
+          </li>
         </div>
         <!-- end of navbar-collapse -->
       </div>
@@ -144,23 +137,23 @@
             <p>Answer the following questions carefully to get the most accurate prediction!</p>
             
           </section>
-          <form action="{% url 'lresult' %}" method="post">
+          <form action="{% url 'lresult' %}" method="POST" name="form">
             {% csrf_token %}
             <section>
-             <p>How often do you consume alcohol?</p>
+             <p>In what range does the Air Quality Index (AQI) of the city of your residence lie in?</p>
             
-              <input type="checkbox" name="chk[]" value="1">never
+              <input type="text" placeholder="air_pollution" class="air_pollution" id="air_pollution"/>
+              <!--<br><br>
+              <input type="checkbox" name="chk[]" value="2">25-49
               <br><br>
-              <input type="checkbox" name="chk[]" value="2">1-2 drinks per month
+              <input type="checkbox" name="chk[]" value="3">50-74
               <br><br>
-              <input type="checkbox" name="chk[]" value="3">1-2 drinks per week
+              <input type="checkbox" name="chk[]" value="6">75-100
               <br><br>
-              <input type="checkbox" name="chk[]" value="6">1-2 drinks per day
-              <br><br>
-              <input type="checkbox" name="chk[]" value="8">8-12 drinks per week
+              <input type="checkbox" name="chk[]" value="8">
               <br><br>
               <input type="checkbox" name="chk[]" value="10">more than above
-              <br><br>
+              <br><br>-->
               
             </section>
 
@@ -187,7 +180,7 @@
             <input class="button" type="submit" id="submit" ></input>
           </form>
           
-          <div id="svg_wrap"><svg version="1.1" id="svg_form_time" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 3024 24" xml:space="preserve"><rect x="12" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="12" cy="12" r="12" width="12" height="6" style="fill: rgb(47, 247, 80);"></circle><rect x="212" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="212" cy="12" r="12" width="212" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="412" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="412" cy="12" r="12" width="412" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="612" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="612" cy="12" r="12" width="612" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="812" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="812" cy="12" r="12" width="812" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="1012" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="1012" cy="12" r="12" width="1012" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="1212" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="1212" cy="12" r="12" width="1212" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="1412" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="1412" cy="12" r="12" width="1412" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="1612" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="1612" cy="12" r="12" width="1612" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="1812" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="1812" cy="12" r="12" width="1812" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="2012" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="2012" cy="12" r="12" width="2012" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="2212" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="2212" cy="12" r="12" width="2212" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="2412" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="2412" cy="12" r="12" width="2412" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="2612" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="2612" cy="12" r="12" width="2612" height="6" style="fill: rgb(230, 230, 230);"></circle><rect x="2812" y="9" width="200" height="6" style="fill: rgb(230, 230, 230);"></rect><circle cx="2812" cy="12" r="12" width="2812" height="6" style="fill: rgb(230, 230, 230);"></circle><circle cx="3012" cy="12" r="12" width="2812" height="6" style="fill: rgb(230, 230, 230);"></circle></svg></div>
+          <div id="svg_wrap"></div>
         </div>
         <!-- tool ends -->
         
@@ -198,7 +191,7 @@
         <div class="row">
           <div class="col-lg-3 py-4 py-md-5">
             <div class="d-flex align-items-center">
-              <h4 class="">Mirko</h4>
+              <h4 class="">Virtual Cancer Care</h4>
             </div>
             <p class="py-3 para-light">
               Follow Us!
@@ -334,5 +327,7 @@
     <!-- AOS on Animation Scroll -->
     <script src="./js/script.js"></script>
     <!-- Custom scripts -->
+    <script src="{% static 'js/jQuery.js' %}"></script>
+    <script src="{% static 'js/form.js' %}"></script>
   </body>
 </html>

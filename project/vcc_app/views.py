@@ -91,6 +91,7 @@ def bcancer(request):
 
 
 def bcancer_result(request):
+    y_pred = ''
     #template_name = {'result' : y_pred}
     if request.method == 'POST':
         rm = request.POST['radius_mean']
@@ -129,14 +130,39 @@ def lung(request):
     return render(request, 'vcc_app/lung.html', context=template_name)
 
 def lcancer_result(request):
-	if request.method=="POST":
-		s = request.POST.getlist("chk[]")
-		data=''
-		for s1 in s:
-			data = data +s1 +" "
-		return render(request,"vcc_app/lung_result.html",{'key':data})
-	return render(request,"vcc_app/lung_result.html")   
+    a = request.POST['air_pollution']
+    print(a)
+    if a is not None:
+        try:
+            a = int(a)
+            if a in range(0, 25):
+                answer = 1
+            elif a >= 25 and a < 50:
+                answer = 2
+            elif a >=50 and a < 75:
+                answer = 3
+            elif a >=75 and a < 100:
+                answer = 4
+            elif a >=100 and a < 125:
+                answer = 5
+            elif a >= 125 and a < 150:
+                answer = 6
+            elif a >=150 and a < 175:
+                answer = 7
+            elif a >=175 and a < 200:
+                answer = 8
+            elif a >=200 and a < 300:
+                answer = 9
+            elif a >=300:
+                answer = 10
+            else:
+                answer = 0
+        except ValueError:
+            answer = 0
+    else:
+        answer = 0
 
+    return render(request, "vcc_app/lung_result.html", {'key': answer})
 
 def leukemia(request):
     template_name = {'insert_index': ""}
